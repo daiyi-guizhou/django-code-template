@@ -1,0 +1,8 @@
+django>=3.0
+django_filter
+django_redis
+drf_yasg
+pymysql
+PyJWT
+djangorestframework
+# pandas
