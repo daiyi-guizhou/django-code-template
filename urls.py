@@ -13,8 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from .apps.app_1.views.domain import DomainSet
-from .apps.app_1.views.app import AppSet
+from apps.app_1.views.domain import DomainSet
+from apps.app_1.views.app import AppSet
 from rest_framework.routers import DefaultRouter
 from django.conf.urls import include
 from django.contrib import admin
@@ -40,8 +40,8 @@ schema_view = get_schema_view(
 
 
 router = DefaultRouter()
-router.register(r"^app/", AppSet)
-router.register(r"^domain/", DomainSet)
+router.register(r"^app", AppSet)
+router.register(r"^domain", DomainSet)
 
 
 urlpatterns = [

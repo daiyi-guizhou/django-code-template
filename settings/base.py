@@ -15,8 +15,8 @@ import os
 import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.insert(0, os.path.join(BASE_DIR, '../apps'))
+BASE_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, os.path.join(BASE_DIR, './apps'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     # 'django_template.apps.sso',
-    'django_template.apps.app_1',
+    'apps.app_1',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_template.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_template.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Password validation
