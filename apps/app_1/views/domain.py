@@ -1,6 +1,6 @@
 
 from .common import CommonSet
-from ..models import AppInfo, DomainInfo
+from ..models import AppInfo, DomainInfo,OperationInfo
 from ..serializers import DomainFilter, AppFilter, AppSerializer, DomainSerializer
 import django_filters
 

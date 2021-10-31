@@ -20,6 +20,7 @@ class BaseModel(models.Model):
     create_by = models.CharField(
         db_column="create_by", max_length=32,
         verbose_name="create_by",
+        null=True,
         default="daiyi")
 
     # 创建时间
@@ -81,3 +82,22 @@ class AppInfo(BaseModel):
 
     def __str__(self):
         return "app_model_class"
+
+
+class OperationInfo(BaseModel):
+    op_id = models.AutoField(
+        db_column='op_id', help_text='op_id', primary_key=True)
+    op_user = models.CharField(
+        db_column='op_user', help_text="op_user", max_length=323, null=True)
+    
+    op_type = models.CharField(
+        db_column='op_type', help_text="op_type", max_length=32, null=True)
+    op_res = models.CharField(
+        db_column='op_res', help_text="op_res",
+        null=True, max_length=3332)
+
+    class Meta:
+        db_table = 'op_info'
+
+    def __str__(self):
+        return "op_model_class"

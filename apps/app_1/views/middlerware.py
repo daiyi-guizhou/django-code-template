@@ -1,6 +1,6 @@
 from django.utils.decorators import decorator_from_middleware
 import time
-
+from .models import OperationInfo
 # Django 中间件， 可以用来处理  request ,response 之间的很多东西
 
 
@@ -22,7 +22,18 @@ class RequestLogMiddleware(object):
         path = request.get_full_path()
         match = request.resolver_match.kwargs
 
+        log_info ={
+            "op_user" : request.user,
+            
+            "op_type": request.method,
+            "op_res":{
+                "code": response.status_code,
+                "res" : response.data,
+            },
+        }
+
         # 此处可自定义方法， 来处理 request,response 的各种值。
+        OperationInfo.object.save(**log_info)
 
         return response
 
